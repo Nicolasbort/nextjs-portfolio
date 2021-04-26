@@ -18,15 +18,15 @@ export default function Contact(props) {
                     <div className="col-md-4 px-4">
                         <ul className="list-group list-group-flush fw-bold fs-5">
                             <li className="list-group-item my-2">
-                                <i className="far fa-envelope"></i>   {props.email}
+                                <i className="far fa-envelope fs-5"></i>   {props.email}
                             </li>
-                            <li className="list-group-item my-2">
+                            <li className="list-group-item my-2 fs-5">
                                 <i className="fas fa-mobile-alt"></i>     {props.cellphone}
                             </li>
-                            <li className="list-group-item my-2">
+                            <li className="list-group-item my-2 fs-5">
                                 <i className="fab fa-linkedin"></i>       <a href={props.linkedin}>Linkedin</a> 
                             </li>
-                            <li className="list-group-item my-2">
+                            <li className="list-group-item my-2 fs-5">
                                 <i className="fab fa-github"></i>          <a href={props.github}>Github</a> 
                             </li>
                         </ul>
