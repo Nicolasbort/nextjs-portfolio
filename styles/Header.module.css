@@ -1,0 +1,10 @@
+.header {
+    background-color: #219ebc;
+    padding-top: calc(6rem + 50px);
+    padding-bottom: 1.5rem;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 3rem;
+}
