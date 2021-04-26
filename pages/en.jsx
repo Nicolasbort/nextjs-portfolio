@@ -23,39 +23,39 @@ export default function PagePortuguese() {
 
                 {/* Bootstrap 5 */}
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossOrigin="anonymous"/>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossOrigin="anonymous"></script>
+                <scrien src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossOrigin="anonymous"></scrien>
             </Head>
 
             <Navbar 
             name={PersonalInfo.general.name} 
-            portfolio={Headings.pt.portfolio} 
-            about={Headings.pt.about} 
-            contact={Headings.pt.contact}
+            portfolio={Headings.en.portfolio} 
+            about={Headings.en.about} 
+            contact={Headings.en.contact}
             />
 
             <Header 
             name={PersonalInfo.general.name} 
-            field={PersonalInfo.pt.field}
+            field={PersonalInfo.en.field}
             />
 
             <Portfolio 
-            portfolio={Headings.pt.portfolio}
-            filter={Headings.pt.filter}
+            portfolio={Headings.en.portfolio}
+            filter={Headings.en.filter}
             />
 
             <About 
-            title={Headings.pt.about} 
-            about={PersonalInfo.pt.about}
+            title={Headings.en.about} 
+            about={PersonalInfo.en.about}
             />
 
             <Contact 
-            title={Headings.pt.contact} 
+            title={Headings.en.contact} 
             linkedin={PersonalInfo.general.linkedin} 
             github={PersonalInfo.general.github}
             email={PersonalInfo.general.email}
             cellphone={PersonalInfo.general.cellphone}
             location={PersonalInfo.general.location}
-            isPortuguese={true}
+            isPortuguese={false}
             />
         </>
     );
