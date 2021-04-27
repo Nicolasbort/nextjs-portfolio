@@ -8,44 +8,33 @@ export default function Portfolio(props) {
     const [jobs, setJobs] = useState(props.jobs);
     const [tagsClicked, setTags] = useState([]);
 
-    function hasSubArray(master, sub) {
-        return sub.every((i => v => i = master.indexOf(v, i) + 1)(0));
-    }
+    function hasSubArray(master, sub) { return sub.every((i => v => i = master.indexOf(v, i) + 1)(0)); }
 
     const searchTag = function() {
-
-        let tempJob = [...jobs]
         jobs.map((job, idx) => { 
             let contains = true
-            tempJob[idx].show = hasSubArray(job.skills, tagsClicked) 
+            jobs[idx].show = hasSubArray(job.skills, tagsClicked) 
         })
 
         setJobs([...jobs])
     }
 
-
     const toggleTag = function(component) {
-
         let clickedTag = component.target.getAttribute("data-search");
         let idxTag = tagsClicked.indexOf(clickedTag);
-
-        console.log(idxTag)
 
         if (idxTag >= 0)
             tagsClicked.splice(idxTag, 1);
         else
             tagsClicked.push(clickedTag);
 
-        toggleActive(component)
-
         setTags([...tagsClicked]);
 
-        console.log(tagsClicked)
+        toggleActive(component)
         searchTag();
     }
 
     const toggleActive = function(component) {
-        
         if (component.target.classList.contains("tag-active"))
             component.target.classList.remove("tag-active")
         else

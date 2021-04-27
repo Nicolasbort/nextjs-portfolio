@@ -14,8 +14,8 @@ export default function PortfolioEntry(props) {
                     <p className={`text-muted ${styles.portfolio_entry_tools}`} >Ferramentas utilizadas</p>
                     {props.skills.map( (skill, idx) => {
                         return (
-                            <span>
-                                <SkillTag disabled={true} name={skill} key={idx} applyCSS/>
+                            <span key={idx + skill}>
+                                <SkillTag disabled={true} name={skill} applyCSS/>
                             </span>
                         )
                     } )}
