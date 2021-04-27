@@ -9,7 +9,7 @@ export default function Filter(props) {
                 <div className="text-center">
                     {SkillList.skills.map( skill => {
                         return (
-                            <SkillTag disabled={false} name={skill}/>
+                            <SkillTag disabled={false} name={skill} callback={props.callback} key={props.name + skill}/>
                         )
                     } )}
                 </div>

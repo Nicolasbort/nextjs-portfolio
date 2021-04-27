@@ -1,10 +1,57 @@
-
-import Jobs from '../lib/Portfolio'
-import SkillTag from '../components/SkillTag'
 import Filter from '../components/Filter'
+import PortfolioEntry from './PortfolioEntry'
+import { useState } from 'react'
 
 
 export default function Portfolio(props) {
+
+    const [jobs, setJobs] = useState(props.jobs);
+    const [tagsClicked, setTags] = useState([]);
+
+    function hasSubArray(master, sub) {
+        return sub.every((i => v => i = master.indexOf(v, i) + 1)(0));
+    }
+
+    const searchTag = function() {
+
+        let tempJob = [...jobs]
+        jobs.map((job, idx) => { 
+            let contains = true
+            tempJob[idx].show = hasSubArray(job.skills, tagsClicked) 
+        })
+
+        setJobs([...jobs])
+    }
+
+
+    const toggleTag = function(component) {
+
+        let clickedTag = component.target.getAttribute("data-search");
+        let idxTag = tagsClicked.indexOf(clickedTag);
+
+        console.log(idxTag)
+
+        if (idxTag >= 0)
+            tagsClicked.splice(idxTag, 1);
+        else
+            tagsClicked.push(clickedTag);
+
+        toggleActive(component)
+
+        setTags([...tagsClicked]);
+
+        console.log(tagsClicked)
+        searchTag();
+    }
+
+    const toggleActive = function(component) {
+        
+        if (component.target.classList.contains("tag-active"))
+            component.target.classList.remove("tag-active")
+        else
+            component.target.classList.add("tag-active")
+    }
+
     return (
         <section className="page-section portfolio" id="portfolio">
                 <div className="container">
@@ -17,37 +64,27 @@ export default function Portfolio(props) {
                         <div className="divider"></div>
                     </div>
 
-                    {/* Not using */}
-                    {/* <Filter name={props.filter}/> */}
+                    <Filter name={props.filter} callback={toggleTag}/>
 
                     <div className="row justify-content-center">
 
-                        {Jobs.pt.map( job => {
-                            return (
-                                <div className="col-md-6 mb-4" key={job.title}>
-                                    <div className="card">
-                                        <div className="card-body">
-                                            <h5 className="card-title fw-bold text-center fs-4 my-3">{job.title}</h5>
-                                            <p className="text-muted text-center fw-bold">{job.company}</p>
-                                            <p className="card-text text-break text-justify">{job.description}</p>
-                                            <p className="text-muted">Ferramentas utilizadas</p>
-                                            {job.skills.map( skill => {
-                                                return (
-                                                    <span>
-                                                        <SkillTag disabled={true} name={skill}/>
-                                                    </span>
-                                                )
-                                            } )}
-                                            <br/>
-                                            <br/>
-                                            {job.link && <a href={job.link} target="_blank" rel="noopener noreferrer" className="btn btn-darkblue">Link</a>}
-                                            {!job.link && <button className="btn btn-darkblue" disabled>Link</button>}
-                                            <span className="float-end text-muted fw-bold">{job.date}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
+                        {jobs.map( (job, idx) => {
+                            if (job.show) { 
+                                return (
+                                        <PortfolioEntry
+                                        title={job.title}
+                                        company={job.company}
+                                        description={job.description}
+                                        skills={job.skills}
+                                        link={job.link}
+                                        date={job.date}
+                                        show={job.show}
+                                        key={idx + job.title}
+                                        />
+                                )
+                            }
                         })}
+
 
                     </div>
                 </div>

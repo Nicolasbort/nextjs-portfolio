@@ -94,3 +94,8 @@ a {
   font-size: 3rem;
   line-height: 2.5rem;
 }
+
+.tag-active {
+  background-color: #023047 !important;
+  color: white !important;
+}

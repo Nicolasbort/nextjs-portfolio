@@ -6,6 +6,8 @@ import About        from '../components/About'
 import Contact      from '../components/Contact'
 import Headings     from '../lib/Headings'
 import PersonalInfo from '../lib/PersonalInfo'
+import Jobs         from '../lib/Portfolio'
+
 
 export default function PagePortuguese() {
     return (
@@ -41,6 +43,7 @@ export default function PagePortuguese() {
             <Portfolio 
             portfolio={Headings.pt.portfolio}
             filter={Headings.pt.filter}
+            jobs={Jobs.pt}
             />
 
             <About 
