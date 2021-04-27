@@ -38,7 +38,7 @@ export default function Contact(props) {
 
                     <div className="col-md-8">
 
-                        <form class={styles.contact_form} method="POST" action="/api/email">
+                        <form className={styles.contact_form} method="POST" action="/api/email">
                             <div className="mb-4">
                                 <input type="email" className="form-control" name="email" placeholder={props.isPortuguese?"Seu email":"Your email"} required/>
                             </div>
