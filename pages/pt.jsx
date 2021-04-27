@@ -43,6 +43,7 @@ export default function PagePortuguese() {
             <Portfolio 
             portfolio={Headings.pt.portfolio}
             filter={Headings.pt.filter}
+            tools={Headings.pt.tools}
             jobs={Jobs.pt}
             />
 

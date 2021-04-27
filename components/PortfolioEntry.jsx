@@ -11,7 +11,7 @@ export default function PortfolioEntry(props) {
                     <h5 className={`card-title fw-bold text-center fs-4 my-3 ${styles.portfolio_entry_title}`}>{props.title}</h5>
                     <p className={`text-muted text-center fw-bold ${styles.portfolio_entry_company}`}>{props.company}</p>
                     <p className={`card-text text-break text-justify ${styles.portfolio_entry_description}`} dangerouslySetInnerHTML={{__html: props.description}}></p>
-                    <p className={`text-muted ${styles.portfolio_entry_tools}`} >Ferramentas utilizadas</p>
+                    <p className={`text-muted ${styles.portfolio_entry_tools}`} >{props.tools}</p>
                     {props.skills.map( (skill, idx) => {
                         return (
                             <span key={idx + skill}>

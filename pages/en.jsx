@@ -42,6 +42,7 @@ export default function PageEnglish() {
             <Portfolio 
             portfolio={Headings.en.portfolio}
             filter={Headings.en.filter}
+            tools={Headings.en.tools}
             jobs={Jobs.en}
             />
 

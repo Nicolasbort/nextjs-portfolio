@@ -68,6 +68,7 @@ export default function Portfolio(props) {
                                         link={job.link}
                                         date={job.date}
                                         show={job.show}
+                                        tools={props.tools}
                                         key={idx + job.title}
                                         />
                                 )
