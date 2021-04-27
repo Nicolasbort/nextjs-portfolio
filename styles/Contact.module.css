@@ -1,0 +1,10 @@
+@media screen and (max-width: 540px) {
+    .contact_info {
+        font-size: 1rem !important;
+    }
+
+    .contact_form {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+ }

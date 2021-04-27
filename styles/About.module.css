@@ -1,0 +1,7 @@
+@media screen and (max-width: 540px) {
+    .about_text {
+        font-size: 1rem;
+        margin-right: 1.75rem !important;
+        margin-left: 1.75rem !important;
+    }
+ }

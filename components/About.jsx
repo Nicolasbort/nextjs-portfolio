@@ -1,4 +1,4 @@
-
+import styles from '../styles/About.module.css'
 
 export default function About(props) {
     return (
@@ -15,7 +15,9 @@ export default function About(props) {
                     
 
                 <div className="row justify-content-center">
-                    <div className="col-lg-8 ml-auto text-justify"><p className="lead fw-bold">{props.about}</p></div>
+                    <div className="col-md-8 mx-auto text-justify">
+                        <p className={`lead fw-bold ${styles.about_text}`}>{props.about}</p>
+                    </div>
                     {/* <div className="col-lg-4 mr-auto"><p className="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div> */}
                 </div>
 

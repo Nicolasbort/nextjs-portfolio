@@ -8,7 +8,7 @@ import Headings     from '../lib/Headings'
 import PersonalInfo from '../lib/PersonalInfo'
 import Jobs         from '../lib/Portfolio'
 
-export default function PagePortuguese() {
+export default function PageEnglish() {
     return (
         <>
             <Head>

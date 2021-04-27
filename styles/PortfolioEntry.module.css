@@ -1,0 +1,31 @@
+@media screen and (max-width: 540px) {
+    .portfolio_entry {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .portfolio_entry_date {
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+    .portfolio_entry_link {
+        font-size: 0.9rem;
+    }
+
+    .portfolio_entry_title{
+        font-size: 1.1rem !important;
+    }
+
+    .portfolio_entry_company {
+        font-size: 0.85rem;
+    }
+
+    .portfolio_entry_description {
+        font-size: 0.85rem;
+    }
+
+    .portfolio_entry_tools {
+        font-size: 0.85rem;
+    }
+ }

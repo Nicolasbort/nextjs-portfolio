@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import styles from '../styles/Contact.module.css'
 
 export default function Contact(props) {
     return (
@@ -15,21 +16,21 @@ export default function Contact(props) {
 
                 <div className="row mt-5">
                     
-                    <div className="col-md-4 px-4">
-                        <ul className="list-group list-group-flush fw-bold fs-5">
+                    <div className="col-md-4 px-4 mb-4">
+                        <ul className={`list-group list-group-flush fw-bold fs-6 ${styles.contact_info}`}>
                             <li className="list-group-item my-2">
-                                <i className="far fa-envelope fs-5"></i>   {props.email}
+                                <i className="far fa-envelope"></i>   {props.email}
                             </li>
-                            <li className="list-group-item my-2 fs-5">
+                            <li className="list-group-item my-2">
                                 <i className="fas fa-mobile-alt"></i>      {props.cellphone}
                             </li>
-                            <li className="list-group-item my-2 fs-5">
+                            <li className="list-group-item my-2">
                                 <i className="fab fa-linkedin"></i>        <a href={props.linkedin}>Linkedin</a> 
                             </li>
-                            <li className="list-group-item my-2 fs-5">
+                            <li className="list-group-item my-2">
                                 <i className="fab fa-github"></i>          <a href={props.github}>Github</a> 
                             </li>
-                            <li className="list-group-item my-2 fs-5">
+                            <li className="list-group-item my-2">
                                 <i className="fas fa-map-marker-alt"></i>      <a href="https://www.google.com.br/maps/place/Pelotas+-+RS/@-31.5610518,-52.4510239,11z/data=!3m1!4b1!4m5!3m4!1s0x95104876f10dfe49:0x18cd959725e0398b!8m2!3d-31.6169827!4d-52.2762322">{props.location}</a>
                             </li>
                         </ul>
@@ -37,7 +38,7 @@ export default function Contact(props) {
 
                     <div className="col-md-8">
 
-                        <form method="POST" action="/api/email">
+                        <form class={styles.contact_form} method="POST" action="/api/email">
                             <div className="mb-4">
                                 <input type="email" className="form-control" name="email" placeholder={props.isPortuguese?"Seu email":"Your email"} required/>
                             </div>

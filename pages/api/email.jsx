@@ -36,7 +36,7 @@ export default (req, res) => {
         const { name, email, cellphone, message } = req.body;
 
         if (!name || !email || !message){
-            res.status(422).json({ error: {pt: "Dados incompletos", en: "Missing body paramenters"} })
+            res.status(422).json({ error: {pt: "Dados incompletos", en: "Missing paramenters"} })
             return;
         }
 

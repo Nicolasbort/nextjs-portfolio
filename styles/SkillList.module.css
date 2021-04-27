@@ -2,3 +2,9 @@
     background-color: #014c72;
     color: white !important;
 }
+
+@media screen and (max-width: 540px) {
+    .skill_tag {
+        font-size: 0.8rem;
+    }
+}
