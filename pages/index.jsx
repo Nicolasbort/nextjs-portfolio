@@ -26,29 +26,29 @@ export default function Home() {
 
 
         <div className="row">
-          <div className="col-6 text-center">
+          <div className="col-md-6 col-sm-12 order-md-1 text-center">
               <span className={styles.title}>
                 Porfólio Pessoal
               </span>
           </div>
-          <div className="col-6 text-center">
-              <span className={styles.title}>
-                  Personal Porfolio
-              </span>
-          </div>
-          <div className={`col-6 ${styles.grid}`}>
+          <div className={`col-md-6 col-sm-12 order-md-4 mb-5 ${styles.grid}`}>
             <Link href="/pt">
               <a className="p-3 border rounded">
-                <h3>Português &rarr;</h3>
+                <p className={styles.language_title}>Português &rarr;</p>
                 <span>Versão em Português</span>
               </a>
             </Link>
           </div>
 
-          <div className={`col-6 ${styles.grid}`}>
+          <div className="col-md-6 col-sm-12 order-md-2 text-center">
+              <span className={styles.title}>
+                  Personal Porfolio
+              </span>
+          </div>
+          <div className={`col-md-6 col-sm-12 order-md-5 mb-5  ${styles.grid}`}>
             <Link href="/en">
               <a className="p-3 border rounded">
-                <h3>English &rarr;</h3>
+                <p className={styles.language_title}>English &rarr;</p>
                 <span>English version</span>
               </a>
             </Link>
