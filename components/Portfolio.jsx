@@ -8,12 +8,12 @@ export default function Portfolio(props) {
     const [jobs, setJobs] = useState(props.jobs);
     const [tagsClicked, setTags] = useState([]);
 
-    function hasSubArray(master, sub) { return sub.every((i => v => i = master.indexOf(v, i) + 1)(0)); }
-
     const searchTag = function() {
-        jobs.map((job, idx) => { 
-            let contains = true
-            jobs[idx].show = hasSubArray(job.skills, tagsClicked) 
+        jobs.forEach( (job, idx) => {
+            if (tagsClicked.length > 0)
+                jobs[idx].show = job.skills.some(r=> tagsClicked.indexOf(r) >= 0)
+            else
+                jobs[idx].show = true
         })
 
         setJobs([...jobs])
@@ -29,6 +29,8 @@ export default function Portfolio(props) {
             tagsClicked.push(clickedTag);
 
         setTags([...tagsClicked]);
+        
+        console.log(tagsClicked)
 
         toggleActive(component)
         searchTag();
@@ -60,17 +62,17 @@ export default function Portfolio(props) {
                         {jobs.map( (job, idx) => {
                             if (job.show) { 
                                 return (
-                                        <PortfolioEntry
-                                        title={job.title}
-                                        company={job.company}
-                                        description={job.description}
-                                        skills={job.skills}
-                                        link={job.link}
-                                        date={job.date}
-                                        show={job.show}
-                                        tools={props.tools}
-                                        key={idx + job.title}
-                                        />
+                                    <PortfolioEntry
+                                    title={job.title}
+                                    company={job.company}
+                                    description={job.description}
+                                    skills={job.skills}
+                                    link={job.link}
+                                    date={job.date}
+                                    show={job.show}
+                                    tools={props.tools}
+                                    key={idx + job.title}
+                                    />
                                 )
                             }
                         })}
