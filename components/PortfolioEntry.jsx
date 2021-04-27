@@ -6,7 +6,7 @@ export default function PortfolioEntry(props) {
     
     return (
         <div className={`col-md-6 mb-4 ${props.show ? '' : 'd-none'} `}>
-            <div className={`card ${styles.portfolio_entry}`}>
+            <div className={`card shadow ${styles.portfolio_entry}`}>
                 <div className="card-body">
                     <h5 className={`card-title fw-bold text-center fs-4 my-3 ${styles.portfolio_entry_title}`}>{props.title}</h5>
                     <p className={`text-muted text-center fw-bold ${styles.portfolio_entry_company}`}>{props.company}</p>
