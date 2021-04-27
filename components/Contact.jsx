@@ -38,7 +38,7 @@ export default function Contact(props) {
 
                     <div className="col-md-8">
 
-                        <form className={styles.contact_form} method="POST" action="/api/email">
+                        <form className={styles.contact_form}>
                             <div className="mb-4">
                                 <input type="email" className="form-control" name="email" placeholder={props.isPortuguese?"Seu email":"Your email"} required/>
                             </div>
@@ -53,7 +53,8 @@ export default function Contact(props) {
                             </div>
 
                             <div className="form-group">
-                                <button className="btn btn-darkblue btn-lg" type="submit">{props.isPortuguese?"Enviar":"Submit"}</button>
+                                <button className="btn btn-darkblue btn-lg" type="submit" disabled>{props.isPortuguese?"Enviar":"Submit"}</button>
+                                <span className="text-muted ms-4">Temporarily Disabled</span>
                             </div>
                         </form>
 
