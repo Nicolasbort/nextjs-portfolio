@@ -5,7 +5,6 @@
     }
 
     .portfolio_entry_date {
-        margin-top: 10px;
         font-size: 0.9rem;
     }
 
@@ -28,4 +27,9 @@
     .portfolio_entry_tools {
         font-size: 0.85rem;
     }
- }
+}
+
+
+ .portfolio_entry_date {
+    margin-top: 12px;
+}

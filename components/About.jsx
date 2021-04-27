@@ -2,15 +2,15 @@ import styles from '../styles/About.module.css'
 
 export default function About(props) {
     return (
-        <section className="page-section bg-lightblue mb-0" id="about" >
+        <section className="page-section bg-orange text-white mb-0" id="about" >
             <div className="container">
 
                 <h2 className="page-section-heading text-center text-uppercase fw-bold mb-0">{props.title}</h2>
 
                 <div className="divider_list">
-                    <div className="divider"></div>
+                    <div className="divider light"></div>
                     <div><i className="fas fa-star"></i></div>
-                    <div className="divider"></div>
+                    <div className="divider light"></div>
                 </div>
                     
 

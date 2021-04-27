@@ -1,3 +1,11 @@
+:root {
+  --darkblue: #14213d;
+  --darkblue_hover: #014769;
+  --ligthblue: #8ecae6;
+  --lightgray: #e5e5e5;
+  --orange: #fca311
+}
+
 html,
 body {
   padding: 0;
@@ -17,11 +25,19 @@ a {
 
 /* Bootstrap definition */
 .bg-darkblue {
-  background-color: #023047 !important;
+  background-color: var(--darkblue) !important;
 }
 
 .bg-lightblue {
-  background-color: #8ecae6 !important;
+  background-color: var(--ligthblue) !important;
+}
+
+.bg-lightgray {
+  background-color: var(--lightgray) !important;
+}
+
+.bg-orange {
+  background-color: var(--orange) !important;
 }
 
 .btn-darkblue {
@@ -38,18 +54,29 @@ a {
 }
 
 .btn-darkblue:hover {
+  color: var(--lightgray) !important;
   color: white;
   opacity: 0.9;
   box-shadow: 0 0 0 0.25rem rgb(1 20 49 / 50%)
 }
 
-
-.text-darkblue {
-  color: #023047 !important;
+.btn-outline-darkblue {
+  color: white;
+  border-color: #6c757d;
 }
 
-.text-darkblue:hover {
-  color: #014769;
+.btn-outline-darkblue:hover {
+  background-color: var(--lightgray) !important;
+  color: white;
+}
+
+
+.text-darkblue {
+  color: var(--darkblue) !important;
+}
+
+.text-lightgray {
+  color: var(--lightgray) !important
 }
 
 .text-justify {
@@ -98,4 +125,9 @@ a {
 .tag-active {
   background-color: #023047 !important;
   color: white !important;
+}
+
+
+.card-text a {
+  color: var(--orange)
 }
