@@ -11,7 +11,7 @@ export default function Portfolio(props) {
     const searchTag = function() {
         jobs.forEach( (job, idx) => {
             if (tagsClicked.length > 0)
-                jobs[idx].show = job.skills.some(r=> tagsClicked.indexOf(r) >= 0)
+                jobs[idx].show = job.skills.some(r => tagsClicked.indexOf(r) >= 0)
             else
                 jobs[idx].show = true
         })
@@ -20,8 +20,8 @@ export default function Portfolio(props) {
     }
 
     const toggleTag = function(component) {
-        let clickedTag = component.target.getAttribute("data-search");
-        let idxTag = tagsClicked.indexOf(clickedTag);
+        const clickedTag = component.target.getAttribute("data-search");
+        const idxTag = tagsClicked.indexOf(clickedTag);
 
         if (idxTag >= 0)
             tagsClicked.splice(idxTag, 1);
@@ -30,8 +30,6 @@ export default function Portfolio(props) {
 
         setTags([...tagsClicked]);
         
-        console.log(tagsClicked)
-
         toggleActive(component)
         searchTag();
     }
@@ -45,41 +43,41 @@ export default function Portfolio(props) {
 
     return (
         <section className="page-section portfolio" id="portfolio">
-                <div className="container">
+            <div className="container">
 
-                    <h2 className="page-section-heading text-darkblue text-center text-uppercase fw-bold mb-0">{props.portfolio}</h2>
+                <h2 className="page-section-heading text-darkblue text-center text-uppercase fw-bold mb-0">{props.portfolio}</h2>
 
-                    <div className="divider_list">
-                        <div className="divider"></div>
-                        <div><i className="fas fa-star"></i></div>
-                        <div className="divider"></div>
-                    </div>
-
-                    <Filter name={props.filter} callback={toggleTag}/>
-
-                    <div className="row justify-content-center">
-
-                        {jobs.map( (job, idx) => {
-                            if (job.show) { 
-                                return (
-                                    <PortfolioEntry
-                                    title={job.title}
-                                    company={job.company}
-                                    description={job.description}
-                                    skills={job.skills}
-                                    link={job.link}
-                                    date={job.date}
-                                    show={job.show}
-                                    tools={props.tools}
-                                    key={idx + job.title}
-                                    />
-                                )
-                            }
-                        })}
-
-
-                    </div>
+                <div className="divider_list">
+                    <div className="divider"></div>
+                    <div><i className="fas fa-star"></i></div>
+                    <div className="divider"></div>
                 </div>
-            </section>
+
+                <Filter name={props.filter} callback={toggleTag}/>
+
+                <div className="row justify-content-center">
+
+                    {jobs.map( (job, idx) => {
+                        if (job.show) { 
+                            return (
+                                <PortfolioEntry
+                                title={job.title}
+                                company={job.company}
+                                description={job.description}
+                                skills={job.skills}
+                                link={job.link}
+                                date={job.date}
+                                show={job.show}
+                                tools={props.tools}
+                                key={idx + job.title}
+                                />
+                            )
+                        }
+                    })}
+
+
+                </div>
+            </div>
+        </section>
     )
 }
