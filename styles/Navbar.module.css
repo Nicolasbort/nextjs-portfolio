@@ -4,3 +4,7 @@
     font-weight: 700;
     background-color: #023047;
 }
+
+.a_hover:hover {
+    color: #b1aeae;
+}

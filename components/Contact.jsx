@@ -19,19 +19,19 @@ export default function Contact(props) {
                     <div className="col-md-4 px-4 mb-4">
                         <ul className={`list-group list-group-flush fw-bold fs-6 ${styles.contact_info}`}>
                             <li className="list-group-item my-2">
-                                <i className="far fa-envelope"></i>   {props.email}
+                                <i className="far fa-envelope"></i>        {props.email}
                             </li>
                             <li className="list-group-item my-2">
                                 <i className="fas fa-mobile-alt"></i>      {props.cellphone}
                             </li>
                             <li className="list-group-item my-2">
-                                <i className="fab fa-linkedin"></i>        <a href={props.linkedin}>Linkedin</a> 
+                                <i className="fab fa-linkedin"></i>        <a target="_blank" href={props.linkedin}>Linkedin</a> 
                             </li>
                             <li className="list-group-item my-2">
-                                <i className="fab fa-github"></i>          <a href={props.github}>Github</a> 
+                                <i className="fab fa-github"></i>          <a target="_blank" href={props.github}>Github</a> 
                             </li>
                             <li className="list-group-item my-2">
-                                <i className="fas fa-map-marker-alt"></i>      <a href="https://www.google.com.br/maps/place/Pelotas+-+RS/@-31.5610518,-52.4510239,11z/data=!3m1!4b1!4m5!3m4!1s0x95104876f10dfe49:0x18cd959725e0398b!8m2!3d-31.6169827!4d-52.2762322">{props.location}</a>
+                                <i className="fas fa-map-marker-alt"></i>  <a target="_blank" href="https://www.google.com.br/maps/place/Pelotas+-+RS/@-31.5610518,-52.4510239,11z/data=!3m1!4b1!4m5!3m4!1s0x95104876f10dfe49:0x18cd959725e0398b!8m2!3d-31.6169827!4d-52.2762322">{props.location}</a>
                             </li>
                         </ul>
                     </div>
