@@ -1,83 +1,61 @@
-import Filter from '../components/Filter'
-import PortfolioEntry from './PortfolioEntry'
-import { useState } from 'react'
+import Filter from '../components/Filter';
+import PortfolioEntry from './PortfolioEntry';
+import { useState, useMemo } from 'react';
 
+export default function Portfolio({ jobs, portfolio, filter, tools }) {
+  const [activeTags, setActiveTags] = useState([]);
 
-export default function Portfolio(props) {
+  const toggleTag = function (component) {
+    const clickedTag = component.target.getAttribute('data-search');
+    const idxTag = activeTags.indexOf(clickedTag);
 
-    const [jobs, setJobs] = useState(props.jobs);
-    const [tagsClicked, setTags] = useState([]);
+    if (idxTag >= 0) activeTags.splice(idxTag, 1);
+    else activeTags.push(clickedTag);
 
-    const searchTag = function() {
-        jobs.forEach( (job, idx) => {
-            if (tagsClicked.length > 0)
-                jobs[idx].show = job.skills.some(r => tagsClicked.indexOf(r) >= 0)
-            else
-                jobs[idx].show = true
-        })
+    setActiveTags([...activeTags]);
 
-        setJobs([...jobs])
-    }
+    toggleActive(component);
+  };
 
-    const toggleTag = function(component) {
-        const clickedTag = component.target.getAttribute("data-search");
-        const idxTag = tagsClicked.indexOf(clickedTag);
+  const toggleActive = function (component) {
+    if (component.target.classList.contains('tag-active'))
+      component.target.classList.remove('tag-active');
+    else component.target.classList.add('tag-active');
+  };
 
-        if (idxTag >= 0)
-            tagsClicked.splice(idxTag, 1);
-        else
-            tagsClicked.push(clickedTag);
+  const filteredJobs = useMemo(() => {
+    if (activeTags.length == 0) return jobs;
 
-        setTags([...tagsClicked]);
-        
-        toggleActive(component)
-        searchTag();
-    }
+    return jobs.filter((job) =>
+      job.skills.some((r) => activeTags.indexOf(r) != -1),
+    );
+  }, [activeTags]);
 
-    const toggleActive = function(component) {
-        if (component.target.classList.contains("tag-active"))
-            component.target.classList.remove("tag-active")
-        else
-            component.target.classList.add("tag-active")
-    }
+  console.log(filteredJobs);
 
-    return (
-        <section className="page-section portfolio" id="portfolio">
-            <div className="container">
+  return (
+    <section className="page-section portfolio" id="portfolio">
+      <div className="container">
+        <h2 className="page-section-heading text-darkblue text-center text-uppercase fw-bold mb-0">
+          {portfolio}
+        </h2>
 
-                <h2 className="page-section-heading text-darkblue text-center text-uppercase fw-bold mb-0">{props.portfolio}</h2>
+        <div className="divider_list">
+          <div className="divider"></div>
+          <div>
+            <i className="fas fa-star"></i>
+          </div>
+          <div className="divider"></div>
+        </div>
 
-                <div className="divider_list">
-                    <div className="divider"></div>
-                    <div><i className="fas fa-star"></i></div>
-                    <div className="divider"></div>
-                </div>
+        <Filter name={filter} callback={toggleTag} />
 
-                <Filter name={props.filter} callback={toggleTag}/>
-
-                <div className="row justify-content-center">
-
-                    {jobs.map( (job, idx) => {
-                        if (job.show) { 
-                            return (
-                                <PortfolioEntry
-                                title={job.title}
-                                company={job.company}
-                                description={job.description}
-                                skills={job.skills}
-                                link={job.link}
-                                date={job.date}
-                                show={job.show}
-                                tools={props.tools}
-                                key={idx + job.title}
-                                />
-                            )
-                        }
-                    })}
-
-
-                </div>
-            </div>
-        </section>
-    )
+        <div className="row justify-content-center">
+          {filteredJobs.map((job) => (
+            <PortfolioEntry key={job.title} job={job} tools={tools} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

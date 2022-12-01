@@ -1,4 +1,4 @@
-  {
+{
   "name": "nextjs",
   "version": "0.1.0",
   "private": true,
@@ -8,9 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "next": "10.x",
     "nodemailer": "^6.5.0",
     "react": "17.x",
     "react-dom": "17.x"
+  },
+  "devDependencies": {
+    "prettier": "2.8.0"
   }
 }
